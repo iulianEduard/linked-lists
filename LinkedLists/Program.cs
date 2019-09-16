@@ -8,7 +8,9 @@ namespace LinkedLists
         {
             //SingleLinkedListOperations();
 
-            SingleCircularLinkedListOperations();
+            //SingleCircularLinkedListOperations();
+
+            CircularDoubleLinkedListOperations();
 
             Console.ReadKey();
         }
@@ -46,6 +48,23 @@ namespace LinkedLists
             scl.Remove(3);
 
             scl.Traverse();
+        }
+
+        static void CircularDoubleLinkedListOperations()
+        {
+            var cdl = new CircularLinkedList(10);
+            cdl.Add(100, 0);
+            cdl.Add(200, 10);
+            cdl.Add(300, 2);
+
+            cdl.Traverse();
+
+            Console.ReadKey();
+
+            // cdl.RemoveValues(300); // remove last before tail
+            // cdl.RemoveValue(10); // remove first after head
+
+            cdl.Traverse();
         }
     }
 }
