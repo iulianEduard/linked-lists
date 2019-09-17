@@ -203,20 +203,60 @@ namespace LinkedLists
 
             var tempNode = _head;
 
-            if(location == 0)
+            if(location == 0) //first item
             {
+                tempNode.Next = null;
+                tempNode.Next = tempNode.Next.Next;
 
+                _head = tempNode;
+                _size--;
             }
 
-            if(location >= _size)
+            if(location >= _size) //last item or outside of the list
             {
+                tempNode.Next = null;
+                tempNode.Previous = tempNode.Previous.Previous;
 
+                _tail = tempNode;
+                _size--;
             }
 
-            if(location < _size)
+            if(location < _size) //inside the linked list
             {
+                var index = 0;
+                while(index < location - 1)
+                {
+                    tempNode = tempNode.Next;
+                    index++;
+                }
 
+                tempNode.Next = tempNode.Next.Next;
+                tempNode.Next.Previous = tempNode;
+
+                _size--;
             }
+        }
+
+        public void Delete()
+        {
+            if (!CheckIfListExists())
+            {
+                Console.WriteLine("List doest not exist!");
+                return;
+            }
+
+            Console.WriteLine("*** Delete linked list ***");
+
+            var tempNode = _head;
+
+            for(int i = 0; i < _size; i++)
+            {
+                tempNode.Previous = null;
+                tempNode = tempNode.Next;
+            }
+
+            _head = null;
+            _tail = null;
         }
 
         private bool CheckIfListExists()

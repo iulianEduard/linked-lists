@@ -61,8 +61,10 @@ namespace LinkedLists
 
             Console.ReadKey();
 
-            // cdl.RemoveValues(300); // remove last before tail
-            // cdl.RemoveValue(10); // remove first after head
+            cdl.RemoveValue(300); // remove last before tail
+            cdl.RemoveValue(10); // remove first after head
+
+            cdl.RemoveLocation(2);
 
             cdl.Traverse();
         }
